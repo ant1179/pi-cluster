@@ -1,0 +1,13 @@
+{
+  "name": "pi-cluster-devcontainer",
+  "image" :  "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "onCreateCommand": "sudo chsh -s /usr/bin/zsh $USER",
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.profiles.linux": {
+      "zsh": {
+        "path": "/usr/bin/zsh"
+      }
+    }
+  }
+}
