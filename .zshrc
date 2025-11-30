@@ -30,6 +30,7 @@ command -v flux >/dev/null && . <(flux completion zsh)
 alias c="clear"
 alias e="exit"
 alias k="kubectl"
+alias kn="kubens"
 alias f="flux"
 alias cg="lazygit"
 
