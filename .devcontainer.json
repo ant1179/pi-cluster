@@ -9,5 +9,6 @@
         "path": "/usr/bin/zsh"
       }
     }
-  }
+  },
+  "postCreateCommand": "zsh -i install-dependencies.sh"
 }
