@@ -17,9 +17,14 @@ spec:
           image: sissbruecker/linkding:1.31.0
           ports:
             - containerPort: 9090
+          securityContext:
+            allowPrivilegeEscalation: false
           volumeMounts:
             - mountPath: "/etc/linkding/data"
               name: linkding-data
+      securityContext:
+        runAsUser: 33
+        runAsGroup: 33
       volumes:
         - name: linkding-data
           persistentVolumeClaim:
