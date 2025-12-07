@@ -26,7 +26,7 @@ sudo apt-get update
 sudo apt-get install -y kubectl
 
 # install FluxCD
-brew install fluxcd/tap/flux fzf kubectx
+brew install fluxcd/tap/flux fzf kubectx lazygit
 
 # add zsh plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
