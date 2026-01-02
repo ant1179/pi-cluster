@@ -1,6 +1,5 @@
 [env]
-# load env from the dotenv file after tools have defined environment variables
-_.file = { path = ".env", tools = true }
+_.file = ".env.json"
 
 [tools]
 kubectl = "latest"
