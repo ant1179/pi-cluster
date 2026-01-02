@@ -1,0 +1,5 @@
+[tools]
+kubectl = "latest"
+flux2 = "latest"
+kubectx = "latest"
+kubens = "latest"
