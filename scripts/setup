@@ -4,4 +4,4 @@
 
 # copy age key in mise standard location so sops can find it
 mkdir -p ~/.config/mise
-cp -v /workspaces/pi-cluster/age.txt ~/.config/mise/age.txt
+cp -v /workspaces/pi-cluster/age-devcontainer.txt ~/.config/mise/age.txt
