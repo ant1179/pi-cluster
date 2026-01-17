@@ -22,6 +22,9 @@ spec:
           volumeMounts:
             - mountPath: "/etc/linkding/data"
               name: linkding-data
+          envFrom:
+            - secretRef:
+                name: linkding-superuser-credentials
       securityContext:
         runAsUser: 33
         runAsGroup: 33
