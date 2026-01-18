@@ -1,0 +1,32 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: kube-prometheus-stack
+  namespace: monitoring
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: kube-prometheus-stack
+      version: "66.2.2"
+      sourceRef:
+        kind: HelmRepository
+        name: kube-prometheus-stack
+        namespace: monitoring
+      interval: 12h
+  install:
+    crds: Create
+  upgrade:
+    # automatically upgrade the custom resource definitions
+    crds: CreateReplace
+  driftDetection:
+    mode: enabled
+    ignore:
+      # ignore this annotation otherwise it will not work
+      - paths: ["/metadata/annotations/prometheus-operator-validated"]
+        target:
+          kind: PrometheusRule
+  values:
+    # override standard helm values
+    grafana:
+      adminPassword: supersecurepassword
