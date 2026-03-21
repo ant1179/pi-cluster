@@ -1,7 +1,9 @@
 #!/bin/bash
 
-/usr/local/bin/mise trust /workspaces/pi-cluster/mise.toml && /usr/local/bin/mise install
-
 # copy age key in mise standard location so sops can find it
-mkdir -p ~/.config/mise
-cp -v /workspaces/pi-cluster/age-devcontainer.txt ~/.config/mise/age.txt
+# has to be done before executing the mise commands
+export MISE_SOPS_PATH=$HOME/.config/mise
+mkdir -p $MISE_SOPS_PATH
+cp -v /workspaces/pi-cluster/age-devcontainer.txt $MISE_SOPS_PATH/age.txt
+
+/usr/local/bin/mise trust /workspaces/pi-cluster/mise.toml && /usr/local/bin/mise install
