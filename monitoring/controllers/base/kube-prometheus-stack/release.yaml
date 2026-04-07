@@ -30,3 +30,9 @@ spec:
     # override standard helm values
     grafana:
       adminPassword: supersecurepassword
+      ingress:
+        enabled: true
+        ingressClassName: traefik
+        hosts:
+          - grafana-pi.mobol-homelab.net
+        tls: []
