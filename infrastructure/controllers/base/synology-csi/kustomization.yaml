@@ -3,3 +3,7 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - secret.yaml
+  - controller.yaml
+  - csi-driver.yaml
+  - node.yaml
+  - storage-class.yaml
