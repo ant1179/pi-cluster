@@ -13,4 +13,4 @@ parameters:
 reclaimPolicy: Retain
 allowVolumeExpansion: true
 mountOptions:
-  - nfsvers=4
+  - nfsvers=4.1
