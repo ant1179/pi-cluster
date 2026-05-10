@@ -4,17 +4,9 @@ metadata:
   name: synology-nfs-storage
   annotations:
     storageclass.kubernetes.io/is-default-class: "false"
-
-provisioner: csi.san.synology.com
-
-parameters:
-  protocol: nfs
-
+provisioner: csi.san.synology.com/nfs
 reclaimPolicy: Retain
-
 allowVolumeExpansion: true
-
 volumeBindingMode: Immediate
-
 mountOptions:
   - nfsvers=4.1
