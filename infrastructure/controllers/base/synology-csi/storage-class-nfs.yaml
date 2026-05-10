@@ -8,8 +8,6 @@ provisioner: csi.san.synology.com
 # if all params are empty, synology CSI will choose an available location to create volume
 parameters:
   protocol: "nfs"
-#   dsm: '1.1.1.1'
-#   location: '/volume1'
-#   fsType: 'ext4'
+  location: '/volume1/k3s-forgejo'
 reclaimPolicy: Retain
 allowVolumeExpansion: true
