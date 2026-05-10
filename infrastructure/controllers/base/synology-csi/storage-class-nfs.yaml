@@ -9,6 +9,6 @@ parameters:
   # dsm: "1.1.1.1"
   # location: '/volume1'
 mountOptions:
-  - nfsvers=4 #3,4,4.1
+  - nfsvers=4.1 #3,4,4.1
 reclaimPolicy: Delete
 allowVolumeExpansion: true
