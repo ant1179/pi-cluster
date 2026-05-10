@@ -5,6 +5,8 @@ metadata:
   annotations:
     storageclass.kubernetes.io/is-default-class: "false"
 provisioner: csi.san.synology.com/nfs
+parameters:
+  location: ""
 reclaimPolicy: Retain
 allowVolumeExpansion: true
 volumeBindingMode: Immediate
