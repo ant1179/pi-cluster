@@ -4,9 +4,8 @@ metadata:
   name: synology-nfs
 provisioner: csi.san.synology.com
 parameters:
-  protocol: "nfs"
-  location: 'k3s-forgejo'
-  mountPermissions: '0755'
+  protocol: nfs
+  location: /volume1
 reclaimPolicy: Retain
 allowVolumeExpansion: true
 mountOptions:
