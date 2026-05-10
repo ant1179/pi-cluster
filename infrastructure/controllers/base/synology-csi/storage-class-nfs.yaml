@@ -7,9 +7,9 @@ metadata:
 provisioner: csi.san.synology.com
 parameters:
   protocol: "nfs"
-  location: "forgejo"
+  location: "/volume1/forgejo"
   mountPermissions: '0777'
-  # dsm: "192.168.1.141"
+  dsm: "192.168.1.141"
 reclaimPolicy: Retain
 allowVolumeExpansion: true
 volumeBindingMode: Immediate
