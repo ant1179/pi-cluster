@@ -2,14 +2,12 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: synology-nfs
-  annotations:
-    storageclass.kubernetes.io/is-default-class: "false"
 provisioner: csi.san.synology.com
 parameters:
-  protocol: nfs
-  location: k3s-forgejo
+  protocol: "nfs"
+  location: '/volume1'
+  mountPermissions: '0755'
 reclaimPolicy: Retain
 allowVolumeExpansion: true
-volumeBindingMode: Immediate
 mountOptions:
-  - nfsvers=4
+  - nfsvers=4.1
