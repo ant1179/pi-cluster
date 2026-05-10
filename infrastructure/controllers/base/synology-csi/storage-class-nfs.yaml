@@ -9,7 +9,6 @@ provisioner: csi.san.synology.com
 
 parameters:
   protocol: nfs
-  location: /volume1
 
 reclaimPolicy: Retain
 
