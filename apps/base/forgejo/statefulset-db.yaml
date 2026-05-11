@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: forgejo-postgres
+  namespace: forgejo
+spec:
+  serviceName: forgejo-postgres
+  replicas: 1
+  selector:
+    matchLabels:
+      app: forgejo-postgres
+  template:
+    metadata:
+      labels:
+        app: forgejo-postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:16-alpine
+          ports:
+            - name: postgres
+              containerPort: 5432
+          envFrom:
+            - secretRef:
+                name: forgejo-postgres-secret
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/postgresql/data
+              subPath: postgres
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        storageClassName: synology-iscsi-storage # adapte au nom exact
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 20Gi

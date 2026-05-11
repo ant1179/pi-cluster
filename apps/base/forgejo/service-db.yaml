@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: forgejo-postgres
+  namespace: forgejo
+spec:
+  selector:
+    app: forgejo-postgres
+  ports:
+    - name: postgres
+      port: 5432
+      targetPort: postgres
