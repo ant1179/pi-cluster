@@ -3,4 +3,3 @@ kind: Kustomization
 namespace: forgejo
 resources:
   - ../../base/forgejo/
-  - nfs-test.yaml
