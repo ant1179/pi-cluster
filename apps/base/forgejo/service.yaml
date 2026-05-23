@@ -13,3 +13,4 @@ spec:
     - name: ssh
       port: 8022
       targetPort: 8022
+  type: ClusterIP
