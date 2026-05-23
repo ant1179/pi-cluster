@@ -20,20 +20,11 @@ spec:
         - name: forgejo
           image: codeberg.org/forgejo/forgejo:15
           securityContext:
-            runAsNonRoot: false
-            runAsUser: 0
-            runAsGroup: 0
-            allowPrivilegeEscalation: true
-            readOnlyRootFileSystem: false
+            allowPrivilegeEscalation: false
+            readOnlyRootFileSystem: true
             capabilities:
               drop:
                 - ALL
-              add:
-                - CHOWN
-                - FOWNER
-                - DAC_OVERRIDE
-                - SETGID
-                - SETUID
           ports:
             - name: http
               containerPort: 3000
