@@ -24,10 +24,14 @@ spec:
             runAsUser: 0
             runAsGroup: 0
             allowPrivilegeEscalation: false
-            readOnlyRootFileSystem: true
+            readOnlyRootFileSystem: false
             capabilities:
               drop:
                 - ALL
+              add:
+                - CHOWN
+                - FOWNER
+                - DAC_OVERRIDE
           ports:
             - name: http
               containerPort: 3000
