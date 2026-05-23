@@ -26,27 +26,27 @@ spec:
               value: forgejo-postgres:5432
             - name: FORGEJO__database__NAME
               valueFrom:
-                secretRef:
+                secretKeyRef:
                   name: forgejo-postgres-secret
                   key: POSTGRES_DB
             - name: FORGEJO__database__USER
               valueFrom:
-                secretRef:
+                secretKeyRef:
                   name: forgejo-postgres-secret
                   key: POSTGRES_USER
             - name: FORGEJO__database__PASSWD
               valueFrom:
-                secretRef:
+                secretKeyRef:
                   name: forgejo-postgres-secret
                   key: POSTGRES_PASSWORD
             - name: FORGEJO__security__SECRET_KEY
               valueFrom:
-                secretRef:
+                secretKeyRef:
                   name: forgejo-secret
                   key: SECRET_KEY
             - name: FORGEJO__security__INTERNAL_TOKEN
               valueFrom:
-                secretRef:
+                secretKeyRef:
                   name: forgejo-secret
                   key: INTERNAL_TOKEN
           volumeMounts:
