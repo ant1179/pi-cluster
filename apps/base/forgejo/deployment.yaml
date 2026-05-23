@@ -92,7 +92,7 @@ spec:
                   name: forgejo-secret
                   key: INTERNAL_TOKEN
             - name: FORGEJO__server__START_SSH_SERVER
-              value: true
+              value: "true"
             - name: FORGEJO__server__SSH_LISTEN_PORT
               value: "8022"
             - name: FORGEJO__server__SSH_PORT
