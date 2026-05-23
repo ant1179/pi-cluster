@@ -52,8 +52,8 @@ spec:
           volumeMounts:
             - name: forgejo-data
               mountPath: /data
-    volumes:
-      - name: forgejo-data
-        persistentVolumeClaim:
-          claimName: forgejo-data
+      volumes:
+        - name: forgejo-data
+          persistentVolumeClaim:
+            claimName: forgejo-data
 
