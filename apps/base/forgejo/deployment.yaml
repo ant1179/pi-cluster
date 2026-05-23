@@ -43,6 +43,9 @@ spec:
             - name: http
               containerPort: 3000
               protocol: TCP
+            - name: ssh
+              port: 8022
+              protocol: TCP
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
@@ -88,6 +91,12 @@ spec:
                 secretKeyRef:
                   name: forgejo-secret
                   key: INTERNAL_TOKEN
+            - name: FORGEJO__server__START_SSH_SERVER
+              value: true
+            - name: FORGEJO__server__SSH_LISTEN_PORT
+              value: "8022"
+            - name: FORGEJO__server__SSH_PORT
+              value: "8022"
           volumeMounts:
             - name: forgejo-data
               mountPath: /data
