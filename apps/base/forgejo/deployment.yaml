@@ -13,6 +13,8 @@ spec:
       labels:
         app: forgejo
     spec:
+      securityContext:
+        fsGroup: 1000
       initContainers:
         - name: init-forgejo-data
           image: busybox:1.37
@@ -42,8 +44,6 @@ spec:
       containers:
         - name: forgejo
           image: data.forgejo.org/forgejo/forgejo:13.0.3-rootless
-          securityContext:
-            fsGroup: 1000
           ports:
             - name: http
               containerPort: 3000
