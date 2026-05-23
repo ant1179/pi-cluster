@@ -13,18 +13,27 @@ spec:
       labels:
         app: forgejo
     spec:
-      securityContext:
-        fsGroup: 1000
-        fsGroupChangePolicy: "OnRootMismatch"
+      # securityContext:
+      #   fsGroup: 1000
+      #   fsGroupChangePolicy: "OnRootMismatch"
       containers:
         - name: forgejo
           image: codeberg.org/forgejo/forgejo:15
           securityContext:
-            allowPrivilegeEscalation: false
-            readOnlyRootFileSystem: true
+            runAsNonRoot: false
+            runAsUser: 0
+            runAsGroup: 0
+            allowPrivilegeEscalation: true
+            readOnlyRootFileSystem: false
             capabilities:
               drop:
                 - ALL
+              add:
+                - CHOWN
+                - FOWNER
+                - DAC_OVERRIDE
+                - SETGID
+                - SETUID
           ports:
             - name: http
               containerPort: 3000
