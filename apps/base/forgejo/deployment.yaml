@@ -15,6 +15,7 @@ spec:
     spec:
       securityContext:
         fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
       initContainers:
         - name: init-forgejo-data
           image: busybox:1.37
@@ -32,16 +33,6 @@ spec:
               chmod 644 /data/gitea/conf/app.ini
           securityContext:
             runAsUser: 0
-            runAsGroup: 0
-            allowPrivilegeEscalation: true
-            readOnlyRootFilesystem: false
-            capabilities:
-              drop:
-                - ALL
-              add:
-                - DAC_OVERRIDE
-                - FOWNER
-                - CHOWN
           volumeMounts:
             - name: forgejo-data
               mountPath: /data
