@@ -23,7 +23,7 @@ spec:
             runAsNonRoot: false
             runAsUser: 0
             runAsGroup: 0
-            allowPrivilegeEscalation: false
+            allowPrivilegeEscalation: true
             readOnlyRootFileSystem: false
             capabilities:
               drop:
@@ -32,6 +32,8 @@ spec:
                 - CHOWN
                 - FOWNER
                 - DAC_OVERRIDE
+                - SETGID
+                - SETUID
           ports:
             - name: http
               containerPort: 3000
