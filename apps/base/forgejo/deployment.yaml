@@ -44,7 +44,7 @@ spec:
               containerPort: 3000
               protocol: TCP
             - name: ssh
-              port: 8022
+              containerPort: 8022
               protocol: TCP
           securityContext:
             allowPrivilegeEscalation: false
