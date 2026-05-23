@@ -6,3 +6,5 @@ resources:
   - secret-db.yaml
   - statefulset-db.yaml
   - service-db.yaml
+  - secret.yaml
+  - deployment.yaml
