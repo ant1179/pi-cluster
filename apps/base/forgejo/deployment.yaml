@@ -72,6 +72,10 @@ spec:
               mountPath: /tmp
             - name: var-tmp
               mountPath: /var/tmp
+            - name: run
+              mountPath: /run
+            - name: var-run
+              mountPath: /var/run
       volumes:
         - name: forgejo-data
           persistentVolumeClaim:
@@ -79,5 +83,9 @@ spec:
         - name: tmp
           emptyDir: {}
         - name: var-tmp
+          emptyDir: {}
+        - name: run
+          emptyDir: {}
+        - name: var-run
           emptyDir: {}
 
