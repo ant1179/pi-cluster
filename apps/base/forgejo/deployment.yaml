@@ -13,30 +13,52 @@ spec:
       labels:
         app: forgejo
     spec:
-      # securityContext:
-      #   fsGroup: 1000
-      #   fsGroupChangePolicy: "OnRootMismatch"
-      containers:
-        - name: forgejo
-          image: codeberg.org/forgejo/forgejo:15
+      initContainers:
+        - name: init-forgejo-data
+          image: busybox:1.37
+          command:
+            - sh
+            - -c
+            - |
+              mkdir -p /data/gitea/conf /data/git /data/ssh
+              chmod 755 /data
+              chmod 755 /data/gitea
+              chmod 755 /data/gitea/conf
+              chmod 700 /data/git
+              chmod 700 /data/ssh
+              touch /data/gitea/conf/app.ini
+              chmod 644 /data/gitea/conf/app.ini
           securityContext:
-            runAsNonRoot: false
-            runAsUser: 0
-            runAsGroup: 0
-            allowPrivilegeEscalation: true
-            readOnlyRootFileSystem: false
+            runAsUser: 1000
+            runAsGroup: 1000
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
             capabilities:
               drop:
                 - ALL
-              add:
-                - CHOWN
-                - FOWNER
-                - DAC_OVERRIDE
-                - SETGID
-                - SETUID
+          volumeMounts:
+            - name: forgejo-data
+              mountPath: /data
+      containers:
+        - name: forgejo
+          image: data.forgejo.org/forgejo/forgejo:13.0.3-rootless
+          securityContext:
+            fsGroup: 1000
           ports:
             - name: http
               containerPort: 3000
+              protocol: TCP
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+              - ALL
+            runAsGroup: 1000
+            runAsNonRoot: true
+            runAsUser: 1000
+            seccompProfile:
+              type: RuntimeDefault
           env:
             - name: USER_UID
               value: "1000"
