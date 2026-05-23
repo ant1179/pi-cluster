@@ -31,13 +31,17 @@ spec:
               touch /data/gitea/conf/app.ini
               chmod 644 /data/gitea/conf/app.ini
           securityContext:
-            runAsUser: 1000
-            runAsGroup: 1000
-            allowPrivilegeEscalation: false
-            readOnlyRootFilesystem: true
+            runAsUser: 0
+            runAsGroup: 0
+            allowPrivilegeEscalation: true
+            readOnlyRootFilesystem: false
             capabilities:
               drop:
                 - ALL
+              add:
+                - DAC_OVERRIDE
+                - FOWNER
+                - CHOWN
           volumeMounts:
             - name: forgejo-data
               mountPath: /data
