@@ -4,4 +4,4 @@ namespace: forgejo
 resources:
   - ../../base/forgejo/
   - cloudflare.yaml
-  - cloudflare-secret.yaml
+  # - cloudflare-secret.yaml
