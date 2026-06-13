@@ -13,7 +13,7 @@ spec:
     - nfsvers=4
   nfs:
     server: 192.168.1.141
-    path: /volume1/forgejo
+    path: /volume1/forgejo-staging
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim

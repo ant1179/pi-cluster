@@ -7,3 +7,4 @@ resources:
   - cloudflare-secret.yaml
   - secret-db.yaml
   - secret.yaml
+  - storage.yaml
