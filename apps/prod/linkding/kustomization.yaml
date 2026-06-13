@@ -4,6 +4,6 @@ namespace: linkding-prod
 resources:
   - ../../base/linkding/
   - cloudflare.yaml
-  - cloudflare-secret.yaml
+  # - cloudflare-secret.yaml
   - secret.yaml
   - namespace.yaml
