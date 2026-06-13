@@ -68,7 +68,7 @@ data:
   config.yaml: |
     # Name of the tunnel you want to run
 
-    tunnel: linkding-pi
+    tunnel: linkding
 
     # key in the <tunnel_id>.json file
     credentials-file: /etc/cloudflared/creds/credentials.json
@@ -78,7 +78,7 @@ data:
     no-autoupdate: true
 
     ingress:
-    - hostname: linkding-pi.mobol-homelab.net
+    - hostname: linkding.mobol-homelab.net
       service: http://linkding:9090
 
     # This rule sends traffic to the built-in hello-world HTTP server. This can help debug connectivity
