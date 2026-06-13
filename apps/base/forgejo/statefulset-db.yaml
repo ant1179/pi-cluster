@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: forgejo-postgres
-  namespace: forgejo
 spec:
   serviceName: forgejo-postgres
   replicas: 1
