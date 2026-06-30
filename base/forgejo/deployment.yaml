@@ -30,6 +30,7 @@ spec:
               chmod 700 /var/lib/gitea/ssh
               touch /var/lib/gitea/custom/conf/app.ini
               chmod 644 /var/lib/gitea/custom/conf/app.ini
+              chown -R 1000:1000 /var/lib/gitea
           securityContext:
             runAsUser: 0
           volumeMounts:
