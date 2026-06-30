@@ -22,19 +22,19 @@ spec:
             - sh
             - -c
             - |
-              mkdir -p /data/gitea/conf /data/git /data/ssh
-              chmod 755 /data
-              chmod 755 /data/gitea
-              chmod 755 /data/gitea/conf
-              chmod 700 /data/git
-              chmod 700 /data/ssh
-              touch /data/gitea/conf/app.ini
-              chmod 644 /data/gitea/conf/app.ini
+              mkdir -p /var/lib/gitea/custom/conf /var/lib/gitea/git /var/lib/gitea/ssh
+              chmod 755 /var/lib/gitea
+              chmod 755 /var/lib/gitea/custom
+              chmod 755 /var/lib/gitea/custom/conf
+              chmod 700 /var/lib/gitea/git
+              chmod 700 /var/lib/gitea/ssh
+              touch /var/lib/gitea/custom/conf/app.ini
+              chmod 644 /var/lib/gitea/custom/conf/app.ini
           securityContext:
             runAsUser: 0
           volumeMounts:
             - name: forgejo-data
-              mountPath: /data
+              mountPath: /var/lib/gitea
       containers:
         - name: forgejo
           image: data.forgejo.org/forgejo/forgejo:13.0.3-rootless
@@ -98,7 +98,7 @@ spec:
               value: "8022"
           volumeMounts:
             - name: forgejo-data
-              mountPath: /data
+              mountPath: /var/lib/gitea
             - name: tmp
               mountPath: /tmp
             - name: var-tmp
