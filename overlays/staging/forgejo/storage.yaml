@@ -20,6 +20,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: forgejo-data
 spec:
+  volumeName: forgejo-staging-nfs-pv
   accessModes:
     - ReadWriteOnce
   storageClassName: forgejo-nfs
