@@ -5,7 +5,7 @@ metadata:
   namespace: forgejo-staging
 spec:
   configuration:
-    destinationPath: s3://homelab-pi-cnpg-backup/forgejo-staging/
+    destinationPath: s3://homelab-pi-cnpg-backup/forgejo-prod/
     endpointURL: s3.eu-central-003.backblazeb2.com
 
     s3Credentials:
