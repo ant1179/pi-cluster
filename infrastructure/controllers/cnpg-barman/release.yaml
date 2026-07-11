@@ -11,6 +11,6 @@ spec:
       chart: plugin-barman-cloud
       sourceRef:
         kind: HelmRepository
-        name: cnpg-barman
+        name: cnpg
         namespace: flux-system
       interval: 24h
