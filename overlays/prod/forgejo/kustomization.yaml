@@ -10,3 +10,4 @@ resources:
   - secret.yaml
   - storage.yaml
   - namespace.yaml
+  - object-store.yaml

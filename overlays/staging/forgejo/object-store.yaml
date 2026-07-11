@@ -1,0 +1,25 @@
+apiVersion: barmancloud.cnpg.io/v1
+kind: ObjectStore
+metadata:
+  name: forgejo-backup
+  namespace: forgejo-staging
+spec:
+  configuration:
+    destinationPath: s3://homelab-pi-cnpg-backup/forgejo-staging/
+    endpointURL: s3.eu-central-003.backblazeb2.com
+
+    s3Credentials:
+      accessKeyId:
+        name: forgejo-secret-backup
+        key: ACCESS_KEY_ID
+      secretAccessKey:
+        name: forgejo-secret-backup
+        key: ACCESS_SECRET_KEY
+
+    wal:
+      compression: gzip
+
+    data:
+      compression: gzip
+
+  retentionPolicy: "30d"
