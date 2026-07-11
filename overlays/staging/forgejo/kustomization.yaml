@@ -6,7 +6,7 @@ resources:
   - cloudflare.yaml
   - cloudflare-secret.yaml
   - secret-db.yaml
-  - secret-backup
+  - secret-backup.yaml
   - secret.yaml
   - storage.yaml
   - namespace.yaml
