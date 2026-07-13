@@ -65,22 +65,25 @@ spec:
             - name: FORGEJO__database__DB_TYPE
               value: postgres
             - name: FORGEJO__database__HOST
-              value: forgejo-postgres:5432
+              valueFrom:
+                secretKeyRef:
+                  name: forgejo-postgres-cnpg-app
+                  key: host
             - name: FORGEJO__database__NAME
               valueFrom:
                 secretKeyRef:
-                  name: forgejo-postgres-secret
-                  key: POSTGRES_DB
+                  name: forgejo-postgres-cnpg-app
+                  key: dbname
             - name: FORGEJO__database__USER
               valueFrom:
                 secretKeyRef:
-                  name: forgejo-postgres-secret
-                  key: POSTGRES_USER
+                  name: forgejo-postgres-cnpg-app
+                  key: username
             - name: FORGEJO__database__PASSWD
               valueFrom:
                 secretKeyRef:
-                  name: forgejo-postgres-secret
-                  key: POSTGRES_PASSWORD
+                  name: forgejo-postgres-cnpg-app
+                  key: password
             - name: FORGEJO__security__SECRET_KEY
               valueFrom:
                 secretKeyRef:
