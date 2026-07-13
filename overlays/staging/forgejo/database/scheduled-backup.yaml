@@ -4,7 +4,12 @@ metadata:
   name: forgejo-daily-backup
   namespace: forgejo-staging
 spec:
-  schedule: "0 3 * * *"
+  schedule: "0 0 3 * * *"
   backupOwnerReference: cluster
+
   cluster:
     name: forgejo-postgres-cnpg
+
+  method: plugin
+  pluginConfiguration:
+    name: barman-cloud.cloudnative-pg.io
