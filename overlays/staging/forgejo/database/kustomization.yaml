@@ -5,3 +5,4 @@ resources:
   - secret-backup.yaml
   - object-store.yaml
   - cluster.yaml
+  - scheduled-backup.yaml
