@@ -5,11 +5,11 @@ metadata:
 spec:
   instances: 1
   imageName: ghcr.io/cloudnative-pg/postgresql:16
-  podSecurityContext:
-    runAsUser: 26
-    runAsGroup: 26
-    fsGroup: 26
-    fsGroupChangePolicy: OnRootMismatch
   storage:
     size: 20Gi
     storageClass: synology-iscsi-storage
+  plugins:
+    - name: barman-cloud.cloudnative-pg.io
+      isWALArchiver: true
+      parameters:
+        barmanObjectName: ai-postgres-backup

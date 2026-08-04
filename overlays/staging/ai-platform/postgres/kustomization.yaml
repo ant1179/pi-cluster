@@ -1,5 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
-# resources:
-# - cluster.yaml
+namespace: ai-platform-staging
+resources:
+  - object-store.yaml
+  - scheduled-backup.yaml
+  - secret-backup.yaml
