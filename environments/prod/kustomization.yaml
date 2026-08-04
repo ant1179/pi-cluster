@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - ../../overlays/prod/linkding
   - ../../overlays/prod/forgejo
+  - ../../overlays/prod/ai-platform
