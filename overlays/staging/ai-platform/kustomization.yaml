@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 namespace: ai-platform-staging
-nameSuffix: -staging
+# nameSuffix: -staging
 
 resources:
   - ../../../base/ai-platform
