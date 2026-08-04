@@ -5,7 +5,7 @@ metadata:
 spec:
   instances: 1
   imageName: ghcr.io/cloudnative-pg/postgresql:16
-  securityContext:
+  podSecurityContext:
     runAsUser: 26
     runAsGroup: 26
     fsGroup: 26
