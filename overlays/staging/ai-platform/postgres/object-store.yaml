@@ -10,10 +10,10 @@ spec:
 
     s3Credentials:
       accessKeyId:
-        name: forgejo-secret-backup
+        name: ai-postgres-backup-credentials
         key: ACCESS_KEY_ID
       secretAccessKey:
-        name: forgejo-secret-backup
+        name: ai-postgres-backup-credentials
         key: ACCESS_SECRET_KEY
 
     wal:
