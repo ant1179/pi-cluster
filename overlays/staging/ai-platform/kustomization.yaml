@@ -6,4 +6,5 @@ namespace: ai-platform-staging
 resources:
   - ../../../base/ai-platform
   - postgres
+  # - redis
   - namespace.yaml
