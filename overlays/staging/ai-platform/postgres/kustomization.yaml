@@ -3,6 +3,5 @@ kind: Kustomization
 namespace: ai-platform-staging
 resources:
   - object-store.yaml
-  - scheduled-backup.yaml
   - secret-backup.yaml
   # - scheduled-backup.yaml
