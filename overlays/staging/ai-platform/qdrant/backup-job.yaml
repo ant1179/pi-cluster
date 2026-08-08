@@ -1,0 +1,103 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: qdrant-backup
+spec:
+  backoffLimit: 2
+
+  template:
+    spec:
+      restartPolicy: Never
+
+      initContainers:
+        - name: create-snapshot
+          image: python:3.13-alpine
+          env:
+            - name: QDRANT_URL
+              value: http://qdrant:6333
+            - name: QDRANT_COLLECTION
+              value: snapshot-test
+
+          command:
+            - python
+            - -c
+            - |
+              import json
+              import os
+              import urllib.request
+
+              base = os.environ["QDRANT_URL"]
+              collection = os.environ["QDRANT_COLLECTION"]
+
+              # Create snapshot
+              req = urllib.request.Request(
+                  f"{base}/collections/{collection}/snapshots",
+                  method="POST",
+              )
+
+              with urllib.request.urlopen(req) as response:
+                  result = json.load(response)
+
+              snapshot = result["result"]["name"]
+              print(f"Snapshot created: {snapshot}")
+
+              # Download snapshot
+              url = f"{base}/collections/{collection}/snapshots/{snapshot}"
+              destination = f"/backup/{snapshot}"
+
+              urllib.request.urlretrieve(url, destination)
+
+              with open("/backup/snapshot-name", "w") as f:
+                  f.write(snapshot)
+
+              print(f"Snapshot downloaded to {destination}")
+
+          volumeMounts:
+            - name: backup
+              mountPath: /backup
+
+      containers:
+        - name: upload-to-b2
+          image: amazon/aws-cli:latest
+
+          env:
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: ai-qdrant-backup-credentials
+                  key: AWS_ACCESS_KEY_ID
+
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: ai-qdrant-backup-credentials
+                  key: AWS_SECRET_ACCESS_KEY
+
+            - name: S3_ENDPOINT
+              value: https://s3.eu-central-003.backblazeb2.com
+
+            - name: S3_DESTINATION
+              value: s3://homelab-pi-cnpg-backup/ai-platform-staging/qdrant
+
+          command:
+            - /bin/sh
+            - -c
+            - |
+              SNAPSHOT=$(cat /backup/snapshot-name)
+
+              echo "Uploading ${SNAPSHOT}..."
+
+              aws s3 cp \
+                "/backup/${SNAPSHOT}" \
+                "${S3_DESTINATION}/${SNAPSHOT}" \
+                --endpoint-url "${S3_ENDPOINT}"
+
+              echo "Backup uploaded successfully."
+
+          volumeMounts:
+            - name: backup
+              mountPath: /backup
+
+      volumes:
+        - name: backup
+          emptyDir: {}
