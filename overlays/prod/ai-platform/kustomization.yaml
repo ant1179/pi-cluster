@@ -6,4 +6,6 @@ namespace: ai-platform-prod
 resources:
   - ../../../base/ai-platform
   - postgres
+  - qdrant
+  # - redis
   - namespace.yaml
