@@ -7,4 +7,5 @@ resources:
   - ../../../base/ai-platform
   - postgres
   # - redis
+  # - qdrant
   - namespace.yaml

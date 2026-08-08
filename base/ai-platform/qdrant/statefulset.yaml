@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: qdrant
+spec:
+  serviceName: qdrant
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: qdrant
+
+  template:
+    metadata:
+      labels:
+        app: qdrant
+    spec:
+      containers:
+        - name: qdrant
+          image: qdrant/qdrant:v1.18.3-unprivileged
+
+          ports:
+            - name: http
+              containerPort: 6333
+            - name: grpc
+              containerPort: 6334
+
+          volumeMounts:
+            - name: data
+              mountPath: /qdrant/storage
+            - name: config
+              mountPath: /qdrant/config/production.yaml
+              subPath: production.yaml
+
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 10
+
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+            initialDelaySeconds: 15
+            periodSeconds: 20
+
+      volumes:
+        - name: config
+          configMap:
+            name: qdrant-config
+
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        storageClassName: synology-iscsi-storage
+        resources:
+          requests:
+            storage: 20Gi
