@@ -41,6 +41,8 @@ spec:
                 - FOWNER
                 - FSETID
                 - KILL
+                - SETGID
+                - SETUID
 
           resources:
             requests:
