@@ -37,8 +37,8 @@ spec:
                 - MKNOD
                 - AUDIT_WRITE
                 - SETFCAP
-                - CHOWN
-                # - FOWNER
+                # - CHOWN
+                - FOWNER
 
           resources:
             requests:
