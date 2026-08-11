@@ -35,6 +35,8 @@ spec:
               drop:
                 - NET_RAW
                 - MKNOD
+                - AUDIT_WRITE
+                - SETFCAP
 
           resources:
             requests:
