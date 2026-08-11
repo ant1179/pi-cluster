@@ -39,6 +39,8 @@ spec:
                 - SETFCAP
                 # - CHOWN
                 - FOWNER
+                - FSETID
+                - KILL
 
           resources:
             requests:
