@@ -30,10 +30,10 @@ spec:
 
           securityContext:
             allowPrivilegeEscalation: false
-          #   runAsNonRoot: true
-          #   capabilities:
-          #     drop:
-          #       - ALL
+            #   runAsNonRoot: true
+            capabilities:
+              drop:
+                - ALL
 
           resources:
             requests:
