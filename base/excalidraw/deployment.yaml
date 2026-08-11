@@ -33,7 +33,7 @@ spec:
             #   runAsNonRoot: true
             capabilities:
               drop:
-                - ALL
+                - NET_RAW
 
           resources:
             requests:
