@@ -28,12 +28,12 @@ spec:
               containerPort: 80
               protocol: TCP
 
-          securityContext:
-            allowPrivilegeEscalation: false
-            runAsNonRoot: true
-            capabilities:
-              drop:
-                - ALL
+          # securityContext:
+          #   allowPrivilegeEscalation: false
+          #   runAsNonRoot: true
+          #   capabilities:
+          #     drop:
+          #       - ALL
 
           resources:
             requests:
