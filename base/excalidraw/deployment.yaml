@@ -34,6 +34,7 @@ spec:
             capabilities:
               drop:
                 - NET_RAW
+                - MKNOD
 
           resources:
             requests:
