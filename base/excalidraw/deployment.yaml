@@ -38,7 +38,7 @@ spec:
                 - AUDIT_WRITE
                 - SETFCAP
                 - CHOWN
-                - FOWNER
+                # - FOWNER
 
           resources:
             requests:
