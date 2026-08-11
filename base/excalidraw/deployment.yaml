@@ -41,8 +41,9 @@ spec:
                 - FOWNER
                 - FSETID
                 - KILL
-                - SETGID
+                # - SETGID
                 # - SETUID
+                - DAC_OVERRIDE
 
           resources:
             requests:
