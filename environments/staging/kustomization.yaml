@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
   - ../../overlays/staging/linkding
   - ../../overlays/staging/forgejo
-  # - ../../overlays/staging/excalidraw
+  - ../../overlays/staging/excalidraw
   - ../../overlays/staging/ai-platform
