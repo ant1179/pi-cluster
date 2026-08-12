@@ -16,7 +16,7 @@ spec:
 
     spec:
       securityContext:
-        fsGroup: 101
+        fsGroup: 101 # controls permissions on mounts
         seccompProfile:
           type: RuntimeDefault
 
