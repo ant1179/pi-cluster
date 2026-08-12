@@ -75,13 +75,19 @@ spec:
             failureThreshold: 3
 
           volumeMounts:
-            - name: nginx-config
+            - name: nginx-default-config
               mountPath: /etc/nginx/conf.d/default.conf
               subPath: default.conf
+            - name: nginx-config
+              mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
             - name: nginx-cache
               mountPath: /var/cache/nginx
 
       volumes:
+        - name: nginx-default-config
+          configMap:
+            name: excalidraw-nginx-default
         - name: nginx-config
           configMap:
             name: excalidraw-nginx
