@@ -74,6 +74,8 @@ spec:
               subPath: nginx.conf
             - name: nginx-cache
               mountPath: /var/cache/nginx
+            - name: tmp
+              mountPath: /tmp
 
       volumes:
         - name: nginx-default-config
@@ -83,4 +85,6 @@ spec:
           configMap:
             name: excalidraw-nginx
         - name: nginx-cache
+          emptyDir: {}
+        - name: tmp
           emptyDir: {}
