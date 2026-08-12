@@ -30,10 +30,11 @@ spec:
               protocol: TCP
 
           securityContext:
-            allowPrivilegeEscalation: false
             runAsNonRoot: true
             runAsUser: 101
             runAsGroup: 101 # default nginx user
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
             capabilities:
               drop:
                 - ALL
