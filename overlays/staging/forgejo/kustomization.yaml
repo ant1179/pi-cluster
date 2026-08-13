@@ -6,3 +6,11 @@ resources:
   - application/
   - database/
   - namespace.yaml
+
+patches:
+  - path: application/deployment-patch.yaml
+    # target:
+    #   group: apps
+    #   version: v1
+    #   kind: Deployment
+    #   name: forgejo
