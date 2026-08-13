@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: unstructured
+spec:
+  selector:
+    app: unstructured
+
+  ports:
+    - name: http
+      port: 8000
+      targetPort: http
+
+  type: ClusterIP
