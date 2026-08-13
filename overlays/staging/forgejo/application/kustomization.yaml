@@ -7,3 +7,6 @@ resources:
   - secret-db.yaml
   - secret.yaml
   - storage.yaml
+
+patches:
+  - path: deployment-patch.yaml
