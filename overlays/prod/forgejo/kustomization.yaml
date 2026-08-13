@@ -6,3 +6,6 @@ resources:
   - application/
   - database/
   - namespace.yaml
+
+patches:
+  - path: application/deployment-patch.yaml
