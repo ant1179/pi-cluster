@@ -4,4 +4,5 @@ resources:
   - ../../overlays/staging/linkding
   - ../../overlays/staging/forgejo
   - ../../overlays/staging/excalidraw
+  - ../../overlays/staging/homepage
   - ../../overlays/staging/ai-platform
