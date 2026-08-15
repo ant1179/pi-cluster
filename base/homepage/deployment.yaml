@@ -57,8 +57,6 @@ spec:
             - name: config
               mountPath: /app/config/kubernetes.yaml
               subPath: kubernetes.yaml
-            - name: logs
-              mountPath: /app/config/logs
 
           securityContext:
             allowPrivilegeEscalation: false
