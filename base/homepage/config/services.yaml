@@ -1,37 +1,50 @@
 - Infrastructure:
     - Homepage:
+        icon: homepage.png
         href: https://homepage-pi.mobol-homelab.net
         description: Homelab dashboard
 
+    - Cloudflare:
+        icon: cloudflare.png
+        href: https://dash.cloudflare.com
+        description: Tunnels and access
+
 - Observability:
     - Grafana:
+        icon: grafana.png
         href: https://grafana-pi.mobol-homelab.net
         description: Dashboards
 
 - Development:
     - Forgejo:
+        icon: forgejo.png
         href: https://forgejo-pi.mobol-homelab.net
         description: Git repositories
 
     - n8n:
+        icon: n8n.png
         href: https://n8n-pi.mobol-homelab.net
         description: Automation workflow
 
 - AI platform:
     - Qdrant:
+        icon: qdrant.png
         href: https://qdrant-pi.mobol-homelab.net
         description: Vector database
 
 - Storage:
     - Synology DSM:
+        icon: synology.png
         href: https://nas.mobol-homelab.net
         description: NAS management
 
     - Backblaze B2:
+        icon: backblaze.png
         href: https://secure.backblaze.com
         description: Offsite backups
 
 - Misc:
     - Excalidraw:
+        icon: excalidraw.png
         href: https://excalidraw-pi.mobol-homelab.net
         description: Whiteboard
