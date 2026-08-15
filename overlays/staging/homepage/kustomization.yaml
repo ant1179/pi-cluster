@@ -5,3 +5,4 @@ namespace: homepage-staging
 
 resources:
   - ../../../base/homepage
+  - namespace.yaml
