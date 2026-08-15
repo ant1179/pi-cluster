@@ -1,1 +1,4 @@
 - Infrastructure:
+    - Homepage:
+        href: http://localhost:3000
+        description: Kubernetes application dashboard
