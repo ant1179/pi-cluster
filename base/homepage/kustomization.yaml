@@ -6,7 +6,7 @@ resources:
   - clusterrole.yaml
   - clusterrolebinding.yaml
   - service.yaml
-  # - deployment.yaml
+  - deployment.yaml
 
 configMapGenerator:
   - name: homepage-config
