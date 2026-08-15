@@ -24,6 +24,20 @@ spec:
         seccompProfile:
           type: RuntimeDefault
 
+      initContainers:
+        - name: init-config
+          image: busybox:1.37
+          command:
+            - sh
+            - -c
+            - cp -r /config-src/. /config-dst/
+          volumeMounts:
+            - name: config
+              mountPath: /config-src
+              readOnly: true
+            - name: config-dir
+              mountPath: /config-dst
+
       containers:
         - name: homepage
           image: ghcr.io/gethomepage/homepage:latest
@@ -39,24 +53,8 @@ spec:
               value: "stdout"
 
           volumeMounts:
-            - name: config
-              mountPath: /app/config/settings.yaml
-              subPath: settings.yaml
-            - name: config
-              mountPath: /app/config/services.yaml
-              subPath: services.yaml
-            - name: config
-              mountPath: /app/config/widgets.yaml
-              subPath: widgets.yaml
-            - name: config
-              mountPath: /app/config/bookmarks.yaml
-              subPath: bookmarks.yaml
-            - name: config
-              mountPath: /app/config/docker.yaml
-              subPath: docker.yaml
-            - name: config
-              mountPath: /app/config/kubernetes.yaml
-              subPath: kubernetes.yaml
+            - name: config-dir
+              mountPath: /app/config
 
           securityContext:
             allowPrivilegeEscalation: false
@@ -79,3 +77,5 @@ spec:
         - name: config
           configMap:
             name: homepage-config
+        - name: config-dir
+          emptyDir: {}
