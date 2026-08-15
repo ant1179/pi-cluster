@@ -2,10 +2,18 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: homepage
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   ingressClassName: traefik
+
+  tls:
+    - hosts:
+        - homepage-pi.mobol-homelab.net
+      secretName: homepage-tls
+
   rules:
-    - host: homepage-pi.mobol-homelab.net
+    - host: homepage.example.com
       http:
         paths:
           - path: /
