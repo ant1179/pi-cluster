@@ -5,6 +5,5 @@ namespace: homepage-staging
 
 resources:
   - ../../../base/homepage
-  - cloudflare.yaml
-  - cloudflare-secret.yaml
+  - ingress.yaml
   - namespace.yaml
