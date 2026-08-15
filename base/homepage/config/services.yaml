@@ -1,4 +1,12 @@
 - Infrastructure:
-    - Homepage:
-        href: http://localhost:3000
-        description: Kubernetes application dashboard
+    - Grafana:
+        href: https://grafana-pi.mobol-homelab.net
+        description: Observability
+
+    - Forgejo:
+        href: https://forgejo-pi.mobol-homelab.net
+        description: Git repositories
+
+    - Excalidraw:
+        href: https://excalidraw-pi.mobol-homelab.net
+        description: Whiteboard
