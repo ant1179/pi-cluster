@@ -15,7 +15,7 @@ spec:
       secretName: homepage-tls
 
   rules:
-    - host: homepage.example.com
+    - host: homepage-pi.mobol-homelab.net
       http:
         paths:
           - path: /
