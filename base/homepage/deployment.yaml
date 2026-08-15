@@ -67,6 +67,7 @@ spec:
             httpGet:
               path: /
               port: http
+              # force the host header to localhost:3000 which is always allowed
               httpHeaders:
                 - name: Host
                   value: localhost:3000
@@ -75,6 +76,7 @@ spec:
             httpGet:
               path: /
               port: http
+              # force the host header to localhost:3000 which is always allowed
               httpHeaders:
                 - name: Host
                   value: localhost:3000
