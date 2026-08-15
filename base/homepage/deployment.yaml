@@ -48,7 +48,7 @@ spec:
 
           env:
             - name: HOMEPAGE_ALLOWED_HOSTS
-              value: "*"
+              value: "homepage-pi.mobol-homelab.net"
             - name: LOG_TARGETS
               value: "stdout"
 
