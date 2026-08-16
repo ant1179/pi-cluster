@@ -20,7 +20,7 @@
         icon: forgejo.png
         href: https://forgejo-pi.mobol-homelab.net
         description: Git repositories
-        widgets:
+        widget:
           type: gitea
           url: https://forgejo-pi.mobol-homelab.net
           key: { { HOMEPAGE_VAR_FORGEJO_TOKEN } }
