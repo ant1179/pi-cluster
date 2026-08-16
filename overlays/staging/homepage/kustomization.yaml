@@ -7,3 +7,4 @@ resources:
   - ../../../base/homepage
   - ingress.yaml
   - namespace.yaml
+  - secrets
