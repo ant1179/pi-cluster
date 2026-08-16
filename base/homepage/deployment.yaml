@@ -46,6 +46,10 @@ spec:
             - name: http
               containerPort: 3000
 
+          envFrom:
+            - secretRef:
+                name: homepage-forgejo-secret
+
           env:
             - name: HOMEPAGE_ALLOWED_HOSTS
               value: "homepage-pi.mobol-homelab.net"
