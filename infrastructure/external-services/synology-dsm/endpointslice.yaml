@@ -1,0 +1,13 @@
+apiVersion: discovery.k8s.io/v1
+kind: EndpointSlice
+metadata:
+  name: synology-dsm
+  labels:
+    kubernetes.io/service-name: synology-dsm
+addressType: IPv4
+ports:
+  - name: http
+    port: 5000
+endpoints:
+  - addresses:
+      - 192.168.1.141
