@@ -49,6 +49,8 @@ spec:
           envFrom:
             - secretRef:
                 name: homepage-forgejo-secret
+            - secretRef:
+                name: homepage-grafana-secret
 
           env:
             - name: HOMEPAGE_ALLOWED_HOSTS
