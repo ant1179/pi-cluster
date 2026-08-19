@@ -17,7 +17,7 @@
         widget:
           type: grafana
           version: 2
-          url: https://grafana.example.com
+          url: https://grafana.mobol-homelab.net
           username: "{{HOMEPAGE_VAR_GRAFANA_USER}}"
           password: "{{HOMEPAGE_VAR_GRAFANA_PASSWORD}}"
           fields:
