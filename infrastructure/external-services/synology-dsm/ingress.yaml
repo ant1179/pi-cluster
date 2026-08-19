@@ -10,7 +10,7 @@ spec:
   tls:
     - hosts:
         - nas.mobol-homelab.net
-      secretName: nas-tls
+      secretName: synology-dsm-tls
 
   rules:
     - host: nas.mobol-homelab.net
