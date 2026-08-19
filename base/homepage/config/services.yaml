@@ -23,6 +23,8 @@
           fields:
             - dashboards
             - datasources
+            - totalalerts
+            - alertstriggered
 
 - Development:
     - Forgejo:
