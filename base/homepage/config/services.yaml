@@ -14,6 +14,17 @@
         icon: grafana.png
         href: https://grafana.mobol-homelab.net
         description: Dashboards
+        widget:
+          type: grafana
+          version: 2
+          url: https://grafana.example.com
+          username: "{{HOMEPAGE_VAR_GRAFANA_USER}}"
+          password: "{{HOMEPAGE_VAR_GRAFANA_PASSWORD}}"
+          fields:
+            - dashboards
+            - datasources
+            - totalalerts
+            - alertstriggered
 
 - Development:
     - Forgejo:
