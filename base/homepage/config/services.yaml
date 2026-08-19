@@ -54,11 +54,11 @@
 - Storage:
     - Synology DSM:
         icon: synology.png
-        href: https://nas.mobol-homelab.net
+        href: https://nas.mobol-homelab.net:5000
         description: NAS management
         widget:
           type: diskstation
-          url: https://nas.mobol-homelab.net
+          url: https://nas.mobol-homelab.net:5000
           username: "{{HOMEPAGE_VAR_SYNOLOGY_USER}}"
           password: "{{HOMEPAGE_VAR_SYNOLOGY_PASSWORD}}"
 
