@@ -59,6 +59,8 @@ spec:
               value: "homepage-pi.mobol-homelab.net"
             - name: LOG_TARGETS
               value: "stdout"
+            - name: LOG_LEVEL
+              value: debug
 
           volumeMounts:
             - name: config-dir
