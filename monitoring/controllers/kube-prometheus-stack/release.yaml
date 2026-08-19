@@ -34,9 +34,8 @@ spec:
         enabled: true
         ingressClassName: traefik
         hosts:
-          - grafana-pi.mobol-homelab.net
+          - grafana.mobol-homelab.net
         tls:
           - secretName: grafana-tls-secret
             hosts:
-              - grafana-pi.mobol-homelab.net
-
+              - grafana.mobol-homelab.net

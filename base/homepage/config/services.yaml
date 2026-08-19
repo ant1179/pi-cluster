@@ -12,7 +12,7 @@
 - Observability:
     - Grafana:
         icon: grafana.png
-        href: https://grafana-pi.mobol-homelab.net
+        href: https://grafana.mobol-homelab.net
         description: Dashboards
 
 - Development:
