@@ -56,11 +56,6 @@
         icon: synology.png
         href: https://nas.mobol-homelab.net
         description: NAS management
-        widget:
-          type: diskstation
-          url: https://nas.mobol-homelab.net
-          username: "{{HOMEPAGE_VAR_SYNOLOGY_USER}}"
-          password: "{{HOMEPAGE_VAR_SYNOLOGY_PASSWORD}}"
 
     - Backblaze B2:
         icon: backblaze.png

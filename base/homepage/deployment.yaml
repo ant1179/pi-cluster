@@ -51,16 +51,14 @@ spec:
                 name: homepage-forgejo-secret
             - secretRef:
                 name: homepage-grafana-secret
-            - secretRef:
-                name: homepage-synology-secret
 
           env:
             - name: HOMEPAGE_ALLOWED_HOSTS
               value: "homepage-pi.mobol-homelab.net"
             - name: LOG_TARGETS
               value: "stdout"
-            - name: LOG_LEVEL
-              value: debug
+            # - name: LOG_LEVEL
+            #   value: debug
 
           volumeMounts:
             - name: config-dir
