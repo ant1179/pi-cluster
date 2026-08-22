@@ -6,3 +6,4 @@ namespace: vikunja-staging
 resources:
   - ../../../base/vikunja
   - namespace.yaml
+  - storage.yaml

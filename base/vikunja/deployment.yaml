@@ -49,6 +49,10 @@ spec:
             - name: VIKUNJA_SERVICE_PUBLICURL
               value: https://vikunja.mobol-homelab.net/
 
+          volumeMounts:
+            - name: files
+              mountPath: /app/vikunja/files
+
           readinessProbe:
             httpGet:
               path: /api/v1/info
@@ -69,3 +73,8 @@ spec:
               memory: 256Mi
             limits:
               memory: 512Mi
+
+      volumes:
+        - name: files
+          persistentVolumeClaim:
+            claimName: vikunja-files
