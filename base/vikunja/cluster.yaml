@@ -7,8 +7,11 @@ spec:
 
   imageName: ghcr.io/cloudnative-pg/postgresql:17
 
-  securityContext:
+  podSecurityContext:
+    runAsUser: 26
+    runAsGroup: 26
     fsGroup: 26
+    fsGroupChangePolicy: OnRootMismatch
 
   bootstrap:
     initdb:
