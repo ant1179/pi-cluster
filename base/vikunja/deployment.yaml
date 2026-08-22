@@ -24,30 +24,16 @@ spec:
             - containerPort: 3456
               name: http
 
+          envFrom:
+            - configMapRef:
+                name: vikunja-config
+
           env:
-            - name: VIKUNJA_DATABASE_TYPE
-              value: postgres
-
-            - name: VIKUNJA_DATABASE_HOST
-              value: vikunja-postgres-rw
-
-            - name: VIKUNJA_DATABASE_PORT
-              value: "5432"
-
-            - name: VIKUNJA_DATABASE_DATABASE
-              value: vikunja
-
-            - name: VIKUNJA_DATABASE_USER
-              value: vikunja
-
             - name: VIKUNJA_DATABASE_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: vikunja-postgres-app
                   key: password
-
-            - name: VIKUNJA_SERVICE_PUBLICURL
-              value: https://vikunja.mobol-homelab.net/
 
           volumeMounts:
             - name: files

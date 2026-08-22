@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vikunja-config
+data:
+  VIKUNJA_DATABASE_TYPE: postgres
+  VIKUNJA_DATABASE_HOST: vikunja-postgres-rw
+  VIKUNJA_DATABASE_PORT: "5432"
+  VIKUNJA_DATABASE_DATABASE: vikunja
+  VIKUNJA_DATABASE_USER: vikunja
+  VIKUNJA_SERVICE_PUBLICURL: https://vikunja-pi.mobol-homelab.net/

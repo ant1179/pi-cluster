@@ -7,3 +7,4 @@ resources:
   - ../../../base/vikunja
   - namespace.yaml
   - storage.yaml
+  - configmap.yaml
