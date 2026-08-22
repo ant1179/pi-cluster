@@ -46,6 +46,9 @@ spec:
                   name: vikunja-postgres-app
                   key: password
 
+            - name: VIKUNJA_SERVICE_PUBLICURL
+              value: https://vikunja.mobol-homelab.net/
+
           readinessProbe:
             httpGet:
               path: /api/v1/info
