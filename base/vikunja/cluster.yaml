@@ -7,6 +7,9 @@ spec:
 
   imageName: ghcr.io/cloudnative-pg/postgresql:17
 
+  securityContext:
+    fsGroup: 26
+
   bootstrap:
     initdb:
       database: vikunja
