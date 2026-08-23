@@ -2,8 +2,17 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: planka
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+
 spec:
   ingressClassName: traefik
+
+  tls:
+    - hosts:
+        - vikunja-pi.mobol-homelab.net
+      secretName: vikunja-tls
+
   rules:
     - host: planka-pi.mobol-homelab.net
       http:
