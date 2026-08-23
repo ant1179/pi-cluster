@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vikunja
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  ingressClassName: traefik
+
+  tls:
+    - hosts:
+        - vikunja-pi.mobol-homelab.net
+      secretName: vikunja-tls
+
+  rules:
+    - host: vikunja-pi.mobol-homelab.net
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: vikunja
+                port:
+                  name: http
