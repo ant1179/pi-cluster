@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: planka-postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: planka-postgres
+  template:
+    metadata:
+      labels:
+        app: planka-postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:16-alpine
+
+          env:
+            - name: POSTGRES_DB
+              value: planka
+
+            - name: POSTGRES_USER
+              value: planka
+
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: planka-database-secrets
+                  key: POSTGRES_PASSWORD
+
+          ports:
+            - containerPort: 5432
+
+          readinessProbe:
+            exec:
+              command:
+                - pg_isready
+                - -U
+                - planka
+                - -d
+                - planka
+            initialDelaySeconds: 5
+            periodSeconds: 10
+
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/postgresql/data
+
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: planka-postgres

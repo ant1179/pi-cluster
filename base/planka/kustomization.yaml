@@ -1,8 +1,7 @@
+# base/planka/kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - cluster.yaml
   - deployment.yaml
   - service.yaml
-  - storage.yaml

@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: planka
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: planka
+  template:
+    metadata:
+      labels:
+        app: planka
+    spec:
+      containers:
+        - name: planka
+          image: ghcr.io/plankanban/planka:2.1.1
+
+          ports:
+            - containerPort: 1337
+
+          envFrom:
+            - configMapRef:
+                name: planka-config
+            - secretRef:
+                name: planka-secrets
+
+          volumeMounts:
+            - name: data
+              mountPath: /app/data
+
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: planka-data
