@@ -19,6 +19,7 @@ spec:
         runAsNonRoot: true
         seccompProfile:
           type: RuntimeDefault
+
       containers:
         - name: vikunja
           image: vikunja/vikunja:2.4.0
@@ -26,6 +27,7 @@ spec:
 
           securityContext:
             allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
             capabilities:
               drop:
                 - ALL
