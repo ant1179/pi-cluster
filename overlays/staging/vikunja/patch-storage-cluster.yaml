@@ -1,0 +1,9 @@
+# patch-storage.yaml
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: vikunja-postgres
+spec:
+  storage:
+    storageClass: local-path
+    size: 10Gi
