@@ -9,4 +9,6 @@ resources:
   - storage.yaml
   - configmap.yaml
   - ingress.yaml
-  - patch-storage-cluster.yaml
+
+patches:
+  - path: patch-storage-cluster.yaml
