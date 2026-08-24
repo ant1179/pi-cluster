@@ -11,7 +11,7 @@ spec:
   tls:
     - hosts:
         - planka-pi.mobol-homelab.net
-      secretName: vikunja-tls
+      secretName: planka-tls
 
   rules:
     - host: planka-pi.mobol-homelab.net
