@@ -10,7 +10,7 @@ spec:
 
   tls:
     - hosts:
-        - vikunja-pi.mobol-homelab.net
+        - planka-pi.mobol-homelab.net
       secretName: vikunja-tls
 
   rules:
