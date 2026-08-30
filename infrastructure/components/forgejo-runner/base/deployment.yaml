@@ -40,12 +40,13 @@ spec:
               if [ ! -s /data/.runner ]; then
                 echo "Registering runner..."
 
-                forgejo-runner create-runner-file \
-                  --instance "${FORGEJO_INSTANCE}" \
-                  --secret "${RUNNER_SECRET}" \
-                  --name "${RUNNER_NAME}"
+                cd /data
 
-                mv .runner /data/.runner
+                forgejo-runner register \
+                  --no-interactive \
+                  --instance "${FORGEJO_INSTANCE}" \
+                  --token "${RUNNER_TOKEN}" \
+                  --name "${RUNNER_NAME}"
               else
                 echo "Runner already registered"
               fi
