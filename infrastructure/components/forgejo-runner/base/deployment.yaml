@@ -64,11 +64,11 @@ spec:
                   name: forgejo-runner-instance
                   key: RUNNER_NAME
 
-            - name: RUNNER_SECRET
+            - name: RUNNER_TOKEN
               valueFrom:
                 secretKeyRef:
                   name: forgejo-runner-secret
-                  key: RUNNER_SECRET
+                  key: RUNNER_TOKEN
 
           volumeMounts:
             - name: runner-data
