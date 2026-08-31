@@ -4,3 +4,6 @@ age*
 .env
 temp
 recovery/
+age-devcontainer.txt
+age-devcontainer.old.txt
+age-devcontainer.new.txt
