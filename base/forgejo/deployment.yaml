@@ -102,6 +102,8 @@ spec:
               value: "8022"
             - name: FORGEJO__server__SSH_PORT
               value: "8022"
+            - name: FORGEJO__packages__LIMIT_SIZE_CONTAINER
+              value: "-1"
           volumeMounts:
             - name: forgejo-data
               mountPath: /var/lib/gitea
