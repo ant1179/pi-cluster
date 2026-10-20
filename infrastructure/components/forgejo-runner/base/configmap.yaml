@@ -24,4 +24,4 @@ data:
 
     container:
       privileged: false
-      docker_host: tcp://localhost:2375
+      docker_host: tcp://172.18.0.1:2375
