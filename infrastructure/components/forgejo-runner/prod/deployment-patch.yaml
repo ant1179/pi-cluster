@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forgejo-runner
+spec:
+  template:
+    spec:
+      containers:
+        - name: docker
+          args:
+            - --tls=false
+            - --insecure-registry=forgejo.forgejo-prod.svc.cluster.local:3000
