@@ -6,6 +6,10 @@ spec:
   template:
     spec:
       containers:
+        - name: runner
+          env:
+            - name: DOCKER_HOST
+              value: tcp://localhost:2375
         - name: docker
           args:
             - --tls=false
