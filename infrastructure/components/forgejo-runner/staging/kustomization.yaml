@@ -10,8 +10,3 @@ resources:
 
 patches:
   - path: deployment-patch.yaml
-  - target:
-      version: v1
-      kind: ConfigMap
-      name: forgejo-runner-config
-    path: configmap-patch.yaml

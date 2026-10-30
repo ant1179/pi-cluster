@@ -16,7 +16,7 @@ data:
       fetch_timeout: 5s
       fetch_interval: 2s
       envs:
-        DOCKER_HOST: tcp://forgejo-runner-docker:2375
+        DOCKER_HOST: tcp://localhost:2375
       labels:
         - "ubuntu-latest:docker://ghcr.io/catthehacker/ubuntu:act-22.04"
 
@@ -26,4 +26,4 @@ data:
 
     container:
       privileged: false
-      docker_host: tcp://forgejo-runner-docker:2375
+      docker_host: tcp://localhost:2375
