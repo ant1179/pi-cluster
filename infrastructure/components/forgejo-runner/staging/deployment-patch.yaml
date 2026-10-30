@@ -10,4 +10,3 @@ spec:
           args:
             - --tls=false
             - --insecure-registry=forgejo.forgejo-staging.svc.cluster.local:3000
-
