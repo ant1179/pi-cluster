@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: compass
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: compass
+  template:
+    metadata:
+      labels:
+        app: compass
+    spec:
+      containers:
+        - name: compass
+          image: forgejo.mobol-homelab.net/ant1179/compass:a30a586
+          ports:
+            - name: http
+              containerPort: 3000
+              protocol: TCP
+          envFrom:
+            - configMapRef:
+                name: compass-config
+            - secretRef:
+                name: compass-secrets

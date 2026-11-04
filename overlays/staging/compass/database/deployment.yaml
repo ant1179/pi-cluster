@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: compass-postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: compass-postgres
+  template:
+    metadata:
+      labels:
+        app: compass-postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:16
+          ports:
+            - name: postgres
+              containerPort: 5432
+          env:
+            - name: POSTGRES_DB
+              value: compass
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: compass-postgres-credentials
+                  key: username
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: compass-postgres-credentials
+                  key: password
+          volumeMounts:
+            - name: postgres-data
+              mountPath: /var/lib/postgresql/data
+
+      volumes:
+        - name: postgres-data
+          persistentVolumeClaim:
+            claimName: compass-postgres
