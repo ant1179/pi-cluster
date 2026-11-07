@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - staging
   - prod
+  - prod/amd64

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forgejo-runner
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: forgejo-runner-amd64
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: forgejo-runner-amd64
+        app.kubernetes.io/instance: forgejo-runner-amd64
+    spec:
+      nodeSelector:
+        kubernetes.io/arch: amd64
+      containers:
+        - name: docker
+          args:
+            - --tls=false
+            - --insecure-registry=forgejo.forgejo-prod.svc.cluster.local:3000
+        - name: runner
+          env:
+            - name: DOCKER_HOST
+              value: tcp://forgejo-runner-docker-amd64:2375
