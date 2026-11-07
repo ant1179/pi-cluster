@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: compass
-          image: forgejo.mobol-homelab.net/ant1179/compass:7597cae8ca
+          image: forgejo.mobol-homelab.net/ant1179/compass:7597cae
           ports:
             - name: http
               containerPort: 3000
