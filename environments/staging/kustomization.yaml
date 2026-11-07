@@ -8,3 +8,4 @@ resources:
   - ../../overlays/staging/vikunja
   - ../../overlays/staging/planka
   - ../../overlays/staging/ai-platform
+  - ../../overlays/staging/compass
