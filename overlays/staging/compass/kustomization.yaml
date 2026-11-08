@@ -8,3 +8,9 @@ resources:
   - namespace.yaml
   - application/
   - database/
+
+images:
+  - name: forgejo.mobol-homelab.net/ant1179/compass
+    newName: forgejo.mobol-homelab.net/ant1179/compass
+    newTag: latest
+    digest: sha256:60ce0389ca27d59d62162be8d122b32d37c7a2e48fc26bfcb85902a5117ca763 # {"$imagepolicy": "flux-system:compass-staging:digest"}
