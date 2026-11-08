@@ -1,0 +1,10 @@
+apiVersion: image.toolkit.fluxcd.io/v1
+kind: ImageRepository
+metadata:
+  name: compass
+  namespace: flux-system
+spec:
+  image: forgejo.mobol-homelab.net/ant1179/compass
+  interval: 1m
+  secretRef:
+    name: forgejo-registry-credentials
