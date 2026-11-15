@@ -1,16 +1,13 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
 namespace: compass-staging
-
 resources:
   - ../../../base/compass
   - namespace.yaml
   - application/
   - database/
-
 images:
   - name: forgejo.mobol-homelab.net/ant1179/compass
     newName: forgejo.mobol-homelab.net/ant1179/compass
     newTag: latest
-    digest: sha256:60ce0389ca27d59d62162be8d122b32d37c7a2e48fc26bfcb85902a5117ca763 # {"$imagepolicy": "flux-system:compass-staging:digest"}
+    digest: sha256:8b3ae27357fd89a7f2eee47fb06894788bd8d0db53469dce5e82e71d352f4844 # {"$imagepolicy": "flux-system:compass-staging:digest"}
