@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - forgejo-runner
   - image-automation
+  - cnpg-monitoring
