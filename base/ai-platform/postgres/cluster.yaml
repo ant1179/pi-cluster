@@ -7,6 +7,8 @@ spec:
   imageName: ghcr.io/cloudnative-pg/postgresql:16
   monitoring:
     enablePodMonitor: true
+    podMonitorAdditionalLabels:
+      release: kube-prometheus-stack
   storage:
     size: 20Gi
     storageClass: synology-iscsi-storage
