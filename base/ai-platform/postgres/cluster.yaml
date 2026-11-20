@@ -5,6 +5,8 @@ metadata:
 spec:
   instances: 1
   imageName: ghcr.io/cloudnative-pg/postgresql:16
+  monitoring:
+    enablePodMonitor: true
   storage:
     size: 20Gi
     storageClass: synology-iscsi-storage
