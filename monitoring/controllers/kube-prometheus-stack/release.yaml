@@ -41,3 +41,7 @@ spec:
           - secretName: grafana-tls-secret
             hosts:
               - grafana.mobol-homelab.net
+    prometheus:
+      prometheusSpec:
+        podMonitorSelectorNilUsesHelmValues: false
+        podMonitorSelector: {}
